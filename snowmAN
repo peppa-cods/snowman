@@ -1,0 +1,71 @@
+import turtle as t
+t.speed("fastest")
+class drawSnowman(): 
+	def rectangle(x,y,length,width,color):
+		t.pu()
+		t.fillcolor(color)
+		t.goto(x,y)
+		t.pd()
+		t.begin_fill()
+		for x in range(2):
+			t.fd(length*1.5)
+			t.rt(90)
+			t.fd(width)
+			t.rt(90)
+		t.end_fill()
+	def triangle(x,y,length, color): 
+		t.pu()
+		t.fillcolor(color)
+		t.goto(x,y)
+		t.pd()
+		t.begin_fill()
+		t.rt(20)
+		t.fd(length/2)
+		t.rt(150)
+		t.fd(length/2)
+		t.rt(100)
+		t.fd(length/4)
+		t.rt(90)
+		t.end_fill()
+	def circle(x,y,s,color):
+		t.pu()
+		t.goto(x,y)
+		t.pd()
+		t.fillcolor(color)
+		t.begin_fill()
+		t.circle(s)
+		t.end_fill()
+
+
+	def snowman(x,y,s,width,color):
+		t.pu()
+		t.goto(x,y)
+		t.pd()
+		drawSnowman.circle(x,y,s,color)
+		drawSnowman.circle(x,y+(s*2)-s/5,s-(s/5),color)
+		drawSnowman.circle(x,y+(s*3)+s/5,s-(s/2.5),color)
+		drawSnowman.triangle(x,y+s*3.8,s,"orange")
+		drawSnowman.circle(x-s*0.3,y+s*4,s/15,"black")
+		drawSnowman.circle(x+s*0.3,y+s*4,s/15,"black")
+		for i in range(1,5):
+			drawSnowman.circle(x,y+i*(s*.7),s/15,"black")
+		t.rt(40)
+		drawSnowman.rectangle(x+s*.6,y+s*3,s,s/7,"brown")
+		t.lt(80)
+		drawSnowman.rectangle(x-s*1.7,y+s*2,s,s/7,"brown")
+		t.lt(100)
+		drawSnowman.rectangle(x-s*1.4,y+s*2+s/5,s/6,s/7,"brown")
+		t.lt(100)
+		drawSnowman.rectangle(x+s*1.6,y+s*2.4,s/6,s/7,"brown")
+		t.lt(120)
+		drawSnowman.rectangle(x-s*.75,y+s*4.6,s,s/3,"black")
+		drawSnowman.rectangle(x-s*.40,y+s*5.1,s/2,s/2,"black")
+		drawSnowman.rectangle(x-s*.60,y+s*3.5,s/1.3,s/4,"red")
+		drawSnowman.rectangle(x-s*.60,y+s*3.5,s/5,s/1.7,"red")
+		
+drawSnowman.snowman(0,0,50,50,"white")
+
+
+
+
+
